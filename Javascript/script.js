@@ -59,6 +59,19 @@ getElement('card-container').addEventListener('click',function(e){
 
     }
 })
+
+// copy caller number and count copy number
+getElement('card-container').addEventListener('click',function(e){
+    if(e.target.className.includes('copy-btn')){
+        const copyBtn = e.target
+        const callerNumber = copyBtn.parentNode.parentNode.children[2].innerText;
+        navigator.clipboard.writeText(callerNumber);
+        alert('🔴 '+'Number copied : ' + callerNumber)
+        const copyNumber = getElement('copy').innerText 
+        const countCopy = Number(copyNumber) + 1;
+        getElement('copy').innerText = countCopy;
+    }
+})
 // Call History Clear 
 getElement('clear-history').addEventListener('click',function(){
             const callHistory = getElement('call-history');
